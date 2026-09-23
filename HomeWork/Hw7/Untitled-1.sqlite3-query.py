@@ -1,0 +1,50 @@
+# -- database: ./quiz.db
+#
+# SELECT * FROM results;
+#
+# SELECT username, is_correct
+# FROM results AS r
+#
+# INNER JOIN users AS u
+#     ON u.id = r.user_id
+#
+# INNER JOIN questions AS q
+#     ON q.id = r.question_id;
+#
+#
+#
+# SELECT username,
+#        COUNT(id) as answer
+# FROM results
+#
+# LEFT JOIN users
+#     ON results.user_id = users.id;
+#
+#
+#
+# -- Агрегатные функции --
+#
+# -- COUNT() - количество строк --
+# -- SUM() - сумма значений --
+# -- AVG() - среднее ариф. значение --
+# -- MIN() - самое маленькое значение --
+# -- MAX() - самое большое значение --
+#
+# SELECT COUNT(*) FROM results;
+#
+#
+#
+# SELECT username,
+#        AVG(is_correct) * 100 AS total_correct
+# FROM results
+#
+# INNER JOIN users
+#     ON results.user_id = users.id
+# WHERE user_id = 1;
+#
+# SELECT user_id,
+#        COUNT(*) AS total,
+#        SUM(is_correct) AS correct
+# FROM results
+# GROUP BY user_id
+# HAVING correct <= 3
